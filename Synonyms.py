@@ -38,13 +38,13 @@ def synonyms(ask):
                     b.append( a[i][j])
             
         c=list()
-        for i in b:
+        for i in b: #This loop is to get the actual only synonyms without the extra characters like "synset"
             name, pos, sid = i.name().split('.')
             c.append(name)
         
-        d=[c[x:x+3] for x in range(0, len(c),3)]
+        d=[c[x:x+3] for x in range(0, len(c),3)] #Grouping each set of 3 synonyms to different groups
         
-        for i,j in zip(z,range(len(d))):
+        for i,j in zip(z,range(len(d))):  #Replacing each word with synonyms keeping rest sentence same
             for k in range(3):  
                 yield (ask.replace(i,d[j][k]))
  
